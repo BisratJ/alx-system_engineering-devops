@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Script to make debugging short and sweet
+
+# Stop Nginx
+service nginx stop
+
+# Remove existing Nginx configuration if it exists
+rm -f /etc/nginx/sites-available/default
+
+# Start Nginx
+service nginx start
+
+# Check Nginx status
+status=$(service nginx status)
+echo "$status"
+
+# Check if Nginx is listening on port 80
+curl 0:80
